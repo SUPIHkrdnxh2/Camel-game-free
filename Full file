@@ -1,0 +1,49 @@
+
+
+import random
+
+import time
+
+distance = 0
+
+startTime = time.time()
+
+hunger = 20
+
+assassin = -100
+
+while True:
+   print(distance,"km")
+   print("Your hunger is",hunger)
+   print("You have played for",round(time.time()-startTime,1),"seconds")
+   print()
+   print("A) travel fast")
+   print("B) travel slow")
+   print("C) rest")
+   print()
+   userInput = input("Option: ").lower()
+   
+   if userInput == "a":
+       distance += random.randint(20,30)
+       hunger -= random.randint(1,5)
+   elif userInput == "b":
+       distance += random.randint(10,20)
+       hunger -= random.randint(0,3)
+   elif userInput == "c":
+       hunger = 20
+
+   assassin += 25
+   if assassin >= distance:
+       print("the assassin has caught up with you and shot your pet goldfish")
+       break
+
+   if hunger <= 0:
+       print("You starved to death")
+       print("RIP")
+       break
+
+   if distance >= 200:
+       endTime = time.time()
+       print("You took",round(endTime - startTime,1),"seconds")
+       print("YOU WON!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+       break
